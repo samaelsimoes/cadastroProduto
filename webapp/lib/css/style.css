@@ -270,6 +270,9 @@ body{
 .modal{
     max-height: 90%!important;
 }
+.modal2{
+    max-height: 90%!important;
+}
 .ng-pristine .ng-valid { 
     display: list-item!important;
 }
@@ -322,6 +325,13 @@ body {
     padding-bottom: 20px!important;
     overflow-y: hidden;
 }  
+.custom-modal2{
+    top: 5%!important;
+    background-color: rgba(255, 255, 255, 0.66)!important;	
+    padding-top: 35px!important;
+    padding-bottom: 20px!important;
+    overflow-y: hidden;
+}  
 .custom-login {
     display: inline-block;
     padding: 40px 50px 50px 50px;
@@ -332,6 +342,11 @@ body {
         margin-top: 5%;
         margin-left: 30%;
         margin-right: 30%;
+    }
+    .custom-margin-login2 {
+        margin-top: 5%;
+        margin-left: 19%;
+        margin-right: 10%;
     }
     .custom-width-card {
         width: 512px;

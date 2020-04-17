@@ -1,6 +1,5 @@
-
 app.factory('LoginService', function($resource) {
-	return $resource('webapp/backend/rest.php/', null, {
+	return $resource('webapp/project/resource/login/backend/login.php/', null, {
 		query:{
 			method: 'GET'
 		}

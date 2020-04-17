@@ -1,7 +1,10 @@
 (function ($) {
     $(function () {	        
     	$('.modal').modal();
-    	$('#modal').modal('close'); 
+        $('#modal').modal('close'); 
+        
+        $('.modal2').modal();
+    	$('#modal2').modal('close'); 
     }); // end of document ready
 })(jQuery); // end of jQuery name space
 

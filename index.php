@@ -2,10 +2,10 @@
 <html ng-app="app">
     <head>
         <meta charset="utf-8" />
-        <title>Cadastro de produtos</title>
+        <title>Login sistema</title>
     </head>
     <body>      
-        <section>
+        <section class="row">
             <div class="custom-login custom-margin-login" ng-controller="LoginController">
                 <div class="z-depth-1 grey lighten-4 row custom-login custom-width-card">
                     <form class="col s12" name="loginForm" ng-submit="auth(user)">			
@@ -31,7 +31,13 @@
                                 <span class="help-block custom-fonts-alert" ng-show="loginForm.password.$error.required">Campo obrigatório!</span>
                             </div>                               
                         </div>
-                        <br/>
+                        <br>
+                        <div class="row">
+                            <a class='green-text  modal-trigger' href="#modal2">
+                                <b>Não possuo conta</b>
+                            </a>
+                        </div>    
+                        <br>
                         <div class='row'>    
                             <a class="col s12 custom-login-botton waves-effect waves-light btn modal-trigger" href="#modal"
                             type="submit" id="modal1" name="action" ng-click="auth(user)" ng-disabled="loginForm.$invalid">
@@ -39,7 +45,8 @@
                             </a>    
                         </div>
 
-                        <div class="row">
+                        <div class="row">  
+                            <br>                            
                             <a class='pink-text' href='#!'>
                                 <b>Esqueceu sua senha ?</b>
                             </a>
@@ -48,6 +55,53 @@
                 </div>
             </div>
             
+            <!-- Modal Novo usuário -->
+            <div id="modal2" class="modal2 modal custom-modal2">
+                <div class="custom-login2 custom-margin-login2" ng-controller="newUserController">
+                    <div class="z-depth-1 grey lighten-4 row custom-login custom-width-card">
+                        <form class="col s12" name="newUserForm" ng-submit="newUserLogin(newUser)">			
+                            <div class='row'>
+                                <div class='col s12'>  
+                                    
+                                    <h1>Novo login</h1>
+                                </div>
+                            </div>		
+                            <div class='row'>            
+                                <div class='input-field col s12 custom-height-divs-card'>	                            
+                                    <input class='validate' type='text' name='nome' id='nome' ng-model="newUser.nome" required/>
+                                    <label for='nome'>Nome</label>
+
+                                    <span class="help-block custom-fonts-alert" ng-show="newUserForm.nome.$error.required">Campo obrigatório!</span>
+                                </div>
+                            </div>			
+                            <div class='row'>            
+                                <div class='input-field col s12 custom-height-divs-card'>	                            
+                                    <input class='validate' type='text' name='newlogin' id='newlogin' ng-model="newUser.login" required/>
+                                    <label for='newlogin'>Login de acesso</label>
+
+                                    <span class="help-block custom-fonts-alert" ng-show="newUserForm.newlogin.$error.required">Campo obrigatório!</span>
+                                </div>
+                            </div>			
+                            <div class='row'>            
+                                <div class='custom-height-divs-card input-field col s12'>			  
+                                    <input class='validate' type='password' name='newPassword' id='newPassword' ng-model="newUser.newPassword" required/>
+                                    
+                                    <label for='newPassword'>Senha</label>	
+                                    <span class="help-block custom-fonts-alert" ng-show="newUserForm.newPassword.$error.required">Campo obrigatório!</span>
+                                </div>                               
+                            </div>     
+                            <br>                                                          
+                            <div class='row'>    
+                                <a class="col s12 custom-login-botton waves-effect waves-light btn modal-trigger" href="#modal2"
+                                type="submit" id="modal1" name="action" ng-click="newUserLogin(newUser)" ng-disabled="newUser.$invalid">
+                                    Cadastrar
+                                </a>    
+                            </div>                         
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal Structure -->
             <div id="modal" class="modal custom-modal">
                 <div class="row">
@@ -74,6 +128,8 @@
                     </div>
                 </div>
             </div>
+
+         
         </section>            
     </body>
 
@@ -82,11 +138,10 @@
     <link href="webapp/lib/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="webapp/lib/css/angular-toastr.css" rel="stylesheet" type="text/css"/>
     <link href="webapp/lib/node_modules/angular-ui-grid/ui-grid.css" rel="stylesheet" type="text/css"/>
-        
+                
     <!-- Libraris js -->	
-
     <script src="webapp/lib/node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
-    <script src="webapp/js/jquery-ui.js" type="text/javascript"></script>
+    <script src="webapp/lib/js/jquery-ui.js" type="text/javascript"></script>
     <script src="webapp/lib/node_modules/angular/angular.js" type="text/javascript"></script>
 
     <script src="webapp/lib/node_modules/angular-route/angular-route.js" type="text/javascript"></script>
@@ -107,8 +162,10 @@
             
     <!-- Services -->
     <script src="webapp/project/resource/login/service/loginService.js" type="text/javascript"></script>
+    <script src="webapp/project/resource/login/service/newUserService.js" type="text/javascript"></script>
 
     <!--  controllers -->	
     <script src="webapp/project/resource/login/login.js" type="text/javascript"></script>	
+    <script src="webapp/project/resource/novoUsuario.js" type="text/javascript"></script>
     <script src="webapp/lib/js/config.js" type="text/javascript"></script>
 </html>
