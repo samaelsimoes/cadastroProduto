@@ -67,7 +67,6 @@ app.controller('ProdutoCRTL', ['$scope', '$http', '$log','$rootScope', '$locatio
 						busca = "*";
 					}
 					SearchProductService.query('', function (products) {
-						debugger;
 						//recursividade!!
 						var newValue = Object.values(products);
 
