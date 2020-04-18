@@ -54,8 +54,6 @@
 								<option value="" disabled selected>Selecione uma das opções</option>               				
 								<?php
 									$query=pg_query($db, "select * from tp_produto");
-
-									$tp_prods = [];  
 								
 									if (pg_num_rows($query) > 0) {
 										while($row = pg_fetch_array($query)) {?>

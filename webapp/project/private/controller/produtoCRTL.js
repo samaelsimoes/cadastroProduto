@@ -9,10 +9,11 @@ app.controller('ProdutoCRTL', ['$scope', '$http', '$log','$rootScope', '$locatio
 	$scope.tp_produts = [];
 
 	$scope.addProduct = function( product ) {
-		debugger;
 		AddProductService.query(product, function(success){	
 			$scope.toastr(success["status"], success["mensagem"]);	
 			
+			$scope.searchProduct();
+
 		}, function(err) {
 			toastr.error("ocorreu erro no servidor, se continuar entrar em contato com o administrador ");
 			console.log(err);
@@ -52,19 +53,10 @@ app.controller('ProdutoCRTL', ['$scope', '$http', '$log','$rootScope', '$locatio
 		    if(listallpes != undefined && listallpes.length > 0 && listallpes[0].id != undefined){
 			  	for(var i = 0; i < listallpes.length; i++){
 					html += "<tr>";					
-						html += "<td>" + listallpes[i].nome + "</td>";
-				
-						if (listallpes[i].tipo == 2) {
-							html += "<td>" + listallpes[i].cnpj + "</td>";
-						}else if (listallpes[i].tipo  == 1){
-							html += "<td>" + listallpes[i].cpf + "</td>";
-						}
-						
-						if (listallpes[i].tipo == 1) {
-							html += "<td>" + "PF" + "</td>";
-						}else if (listallpes[i].tipo == 2) {
-							html += "<td>" + "PJ" + "</td>";
-						}				
+						html += "<td>" + listallpes[i].nome_produto + "</td>";
+						html += "<td>" + listallpes[i].valor + "</td>";
+						html += "<td>" + listallpes[i].descricao + "</td>";
+						html += "<td>" + listallpes[i].tp_produto + "</td>";
 										
 					html += "</tr>";  
 			    }
@@ -75,7 +67,11 @@ app.controller('ProdutoCRTL', ['$scope', '$http', '$log','$rootScope', '$locatio
 						busca = "*";
 					}
 					SearchProductService.query('', function (products) {
-						$scope.searchProduct('',products);
+						debugger;
+						//recursividade!!
+						var newValue = Object.values(products);
+
+						$scope.searchProduct(newValue, '');
 					}, function(err) {
 						toastr.error("ocorreu erro no servidor, se continuar entrar em contato com o administrador");
 						console.log(err);
