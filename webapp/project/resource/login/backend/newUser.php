@@ -9,7 +9,6 @@
     $status = "";
     $mensagem = "";
 
-    // o banco de de dados se chama teste
     $query=pg_query($db, "select * from login where login = '$login'");
     $val = pg_fetch_all($query);
 

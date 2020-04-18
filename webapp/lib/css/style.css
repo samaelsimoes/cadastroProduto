@@ -355,3 +355,22 @@ body {
         height: 80px;
     }
 }
+
+
+/*
+    * Style private system
+*/
+
+.custom-margin-private {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.custom-border-radius {
+    border-radius: 15px;
+    padding:10px;
+}
+
+.custom-add {
+    background-color: #4caf50 !important;
+}

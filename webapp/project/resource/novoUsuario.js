@@ -27,9 +27,9 @@ app.controller('newUserController', [ '$scope', '$rootScope', '$location', 'toas
         }
 	}	
     
-    $scope.val = function(campo, valor){
+    $scope.val = function(campo, valor) {
 		var msg = "";
-		if(valor == null ||  valor.trim() == ""){
+		if(valor == null ||  valor.trim() == "") {
 			msg += " O campo: " + campo + " Está Vazio. </br>";
 		}
 		return msg;
